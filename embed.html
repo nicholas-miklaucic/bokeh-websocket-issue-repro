@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <script id="1000">
+      (function () {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = "blob";
+        xhr.open(
+          "GET",
+          "https://constellate.dev/sliders/autoload.js?bokeh-autoload-element=1000&bokeh-app-path=/sliders&bokeh-absolute-url=https://constellate.dev/sliders",
+          true
+        );
+        xhr.onload = function (event) {
+          const script = document.createElement("script");
+          const src = URL.createObjectURL(event.target.response);
+          script.src = src;
+          document.body.appendChild(script);
+        };
+        xhr.send();
+      })();
+    </script>
+  </body>
+</html>
